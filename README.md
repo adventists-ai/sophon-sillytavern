@@ -6,6 +6,12 @@ Talk to your character on a real-time, full-duplex voice call. Cut in whenever y
 
 Powered by the open-source [Sophon-Realtime](https://github.com/adventists-ai/sophon-realtime) (Apache-2.0): run it on your own GPU, or use the Adventists API.
 
+<p align="center"><img src="assets/demo.gif" width="360" alt="Interrupting a character mid-story"></p>
+
+▶ **Videos:** [2-min tutorial: install, connect, clone a voice, call](assets/demo_tutorial.mp4) · [45-s short](assets/demo_short.mp4) · [on X](https://x.com/BKJinAI/status/2123275865257807933)
+
+<sub>Measured in the tutorial (32B Flash, browser in the same datacenter as the server): end of your speech → her voice ≈ 0.7 s; you talk over her → she stops in 0.16 s. Demo character: the free-material character "Tsukuyomi-chan" (© Rei Yumesaki, https://tyc.rei-yumesaki.net/); voice cloned zero-shot from the Tsukuyomi-chan Corpus (CV. 夢前黎). Unofficial demo, not an official Tsukuyomi-chan collaboration.</sub>
+
 ![A call with a character](assets/call.png)
 
 ## Features

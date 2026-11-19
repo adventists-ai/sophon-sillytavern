@@ -6,6 +6,12 @@
 
 基于开源的 [Sophon-Realtime](https://github.com/adventists-ai/sophon-realtime)（Apache-2.0）：可以用自己的显卡部署，也可以用 Adventists API。
 
+<p align="center"><img src="assets/demo.gif" width="360" alt="角色讲故事时被打断"></p>
+
+▶ **视频：** [2 分钟教程：安装、连接、克隆声音、通话](assets/demo_tutorial.mp4) · [45 秒短片](assets/demo_short.mp4) · [X 上的帖子](https://x.com/BKJinAI/status/2123275865257807933)
+
+<sub>教程中的实测（32B Flash，浏览器与服务器在同一机房）：从你说完到听见她的声音约 0.7 秒；插话后她 0.16 秒停下。演示角色为免费素材角色「つくよみちゃん」（© Rei Yumesaki，https://tyc.rei-yumesaki.net/）；声音用「つくよみちゃんコーパス」（CV. 夢前黎）零样本克隆。非官方合作，仅作演示。</sub>
+
 ![和角色通话](assets/call.png)
 
 ## 功能
