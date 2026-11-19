@@ -6,7 +6,7 @@
     "js": "index.js",
     "css": "style.css",
     "author": "Adventists AI",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "homePage": "https://github.com/adventists-ai/sophon-sillytavern",
     "auto_update": true
 }

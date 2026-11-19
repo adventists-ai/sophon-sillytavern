@@ -4,7 +4,7 @@
 // The model hears you directly, decides by itself when you have finished, and can be interrupted.
 
 const MODULE = 'sophon_call';
-const VERSION = '0.1.0';
+const VERSION = '0.1.1';
 const API_HOSTS = { global: 'wss://api.adventists.ai', cn: 'wss://api.adventists.cn' };
 const CONSOLE_URLS = { global: 'https://api.adventists.ai/console', cn: 'https://api.adventists.cn/console' };
 const REPO_URL = 'https://github.com/adventists-ai/sophon-realtime';
@@ -711,8 +711,14 @@ function settingsHtml() {
         <select id="sc_voice_pick" class="text_pole flex1"></select>
         <input id="sc_voice" class="text_pole flex1" type="text" placeholder="${T('克隆音色 id 或自定义名', 'cloned voice id or custom name')}">
       </div>
-      <small>${T('每个角色单独记住。内置音色任何服务器都有；API 上克隆的音色填 voice_ 开头的 id；自己部署的服务器填你放进 voices 目录的名字。',
-        'Remembered per character. Built-in voices work everywhere; for a voice cloned on the API enter its voice_… id; on your own server, the name you put in its voices folder.')}</small>
+      <small>${T('每个角色单独记住。内置音色任何服务器都能用。', 'Remembered per character. Built-in voices work on every server.')}</small>
+      <small class="sc-local">${T('克隆声音：把同一个人 3–10 秒的干净录音（E2E 要 5–12 秒）放进服务器的 <code>model/voices/</code>（如 <code>alice.wav</code>），选「其他…」填 <code>alice</code>，下一通电话生效，录音不出本机。',
+        'Clone a voice: put a 3–10 s clip of one speaker (5–12 s for E2E) into your server\'s <code>model/voices/</code> (e.g. <code>alice.wav</code>), then choose Other… and type <code>alice</code>. It takes effect on the next call, and the clip stays on your machine.')}
+        <a href="${REPO_URL}/blob/main/tag/README.md#zero-shot-voice-cloning" target="_blank" rel="noopener">${T('详情', 'Details')}</a></small>
+      <small class="sc-api">${T('克隆声音：在', 'Clone a voice: record or upload 3–15 s in the')}
+        <a id="sc_console_voices" href="${CONSOLE_URLS[s.region] || CONSOLE_URLS.global}" target="_blank" rel="noopener">${T('控制台', 'console')}</a>${T('的「音色」页录音或上传 3–15 秒，把 <code>voice_…</code> id 粘贴到「其他…」里（Tag、Flash、E2E 都能用）。',
+        "'s Voices tab, then paste its <code>voice_…</code> id under Other… (works with Tag, Flash and E2E).")}</small>
+      <small>${T('只克隆你本人或已获授权的声音。', 'Only clone your own voice, or a voice you have permission to use.')}</small>
 
       <label for="sc_lang">${T('语言', 'Language')}</label>
       <select id="sc_lang" class="text_pole">
@@ -819,7 +825,7 @@ function bindSettings() {
     const on = (id, ev, fn) => document.getElementById(id).addEventListener(ev, fn);
     on('sc_conn', 'change', (e) => { s.connection = e.target.value; save(); showConnFields(); });
     on('sc_url', 'input', (e) => { s.localUrl = e.target.value; save(); });
-    on('sc_region', 'change', (e) => { s.region = e.target.value; document.getElementById('sc_console').href = CONSOLE_URLS[s.region]; save(); });
+    on('sc_region', 'change', (e) => { s.region = e.target.value; document.getElementById('sc_console').href = CONSOLE_URLS[s.region]; document.getElementById('sc_console_voices').href = CONSOLE_URLS[s.region]; save(); });
     on('sc_key', 'input', (e) => { s.apiKey = e.target.value.trim(); save(); });
     on('sc_model', 'change', (e) => { s.model = e.target.value; save(); });
     on('sc_lang', 'change', (e) => { s.language = e.target.value; save(); });
