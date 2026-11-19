@@ -1,0 +1,151 @@
+.sophon-call {
+    position: fixed;
+    right: 16px;
+    bottom: 96px;
+    z-index: 3000;
+    width: 300px;
+    max-width: calc(100vw - 32px);
+    padding: 12px;
+    border-radius: 14px;
+    background: var(--SmartThemeBlurTintColor, rgba(20, 22, 28, 0.92));
+    border: 1px solid var(--SmartThemeBorderColor, rgba(255, 255, 255, 0.15));
+    color: var(--SmartThemeBodyColor, #e6e6e6);
+    backdrop-filter: blur(var(--SmartThemeBlurStrength, 10px));
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.35);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.sophon-call[hidden] {
+    display: none;
+}
+
+.sophon-call .sc-top {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.sophon-call .sc-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex: none;
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+    transition: outline-color 0.2s;
+}
+
+.sophon-call[data-state="speaking"] .sc-avatar {
+    outline-color: #22c58b;
+    animation: sophon-pulse 1.2s ease-in-out infinite;
+}
+
+.sophon-call[data-state="hearing"] .sc-avatar {
+    outline-color: #4b8bf5;
+}
+
+@keyframes sophon-pulse {
+    50% { outline-offset: 5px; }
+}
+
+.sophon-call .sc-who {
+    flex: 1;
+    min-width: 0;
+}
+
+.sophon-call .sc-name {
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.sophon-call .sc-status,
+.sophon-call .sc-timer {
+    font-size: 0.85em;
+    opacity: 0.75;
+}
+
+.sophon-call .sc-sub {
+    min-height: 1.4em;
+    max-height: 6.5em;
+    overflow: auto;
+    font-size: 0.95em;
+    line-height: 1.35;
+}
+
+.sophon-call .sc-sub:empty {
+    display: none;
+}
+
+.sophon-call .sc-meter {
+    height: 4px;
+    border-radius: 2px;
+    background: rgba(127, 127, 127, 0.25);
+    overflow: hidden;
+}
+
+.sophon-call .sc-meter i {
+    display: block;
+    height: 100%;
+    width: 0;
+    background: #22c58b;
+    transition: width 0.08s linear;
+}
+
+.sophon-call .sc-btns {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.sophon-call .sc-btns .menu_button {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+}
+
+.sophon-call .sc-hang {
+    background: #d9433b !important;
+    color: #fff;
+}
+
+.sophon-call .sc-mute.sc-on {
+    background: #8a8a8a !important;
+    color: #fff;
+}
+
+#sophon_call_btn {
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+#sophon_call_btn:hover {
+    opacity: 1;
+}
+
+.sophon-call-settings label {
+    display: block;
+    margin-top: 8px;
+}
+
+.sophon-call-settings small {
+    display: block;
+    opacity: 0.8;
+}
+
+@media (max-width: 600px) {
+    .sophon-call {
+        left: 16px;
+        right: 16px;
+        width: auto;
+        bottom: 80px;
+    }
+}

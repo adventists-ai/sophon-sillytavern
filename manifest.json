@@ -1,0 +1,12 @@
+{
+    "display_name": "Sophon Voice Call",
+    "loading_order": 100,
+    "requires": [],
+    "optional": [],
+    "js": "index.js",
+    "css": "style.css",
+    "author": "Adventists AI",
+    "version": "0.1.0",
+    "homePage": "https://github.com/adventists-ai/sophon-sillytavern",
+    "auto_update": true
+}
